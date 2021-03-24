@@ -1,36 +1,46 @@
 #include <stdio.h>
 #include <string.h>
 int key;
-char pt[10],ct[10],temp[10];
+char pt[100];
+int p[100],c[100],tem[100];
 int main(){
 printf("Enter the text:\n");
 gets(pt);
 printf("Enter the key:\n");
 scanf("%d",&key);
+for(int i=0;pt[i]!='\0';i++)
+p[i]=pt[i];
 encr();
 decr();
 }
 void encr(){
-for(int i=0;pt[i]!='\0';i++){
-temp[i]=pt[i];
-if(pt[i]<='z' && pt[i]>='a'){
-temp[i]=temp[i]+key;
-if(temp[i]>'z')
-temp[i]=temp[i]-26;
+for(int i=0;p[i]!='\0';i++){
+tem[i]=p[i];
+if(p[i]<=122 && p[i]>=97){
+tem[i]=tem[i]+key;
+if(tem[i]>122)
+tem[i]=tem[i]-26;
+c[i]=tem[i]-32;
 }
-ct[i]=temp[i]-32;
+else 
+c[i]=tem[i];
 }
-printf("Cipher text: %s\n",ct);
+printf("Cipher text: \n");
+for(int i=0;c[i]!='\0';i++)
+printf("%c",c[i]);
 }
 void decr(){
-for(int i=0;ct[i]!='\0';i++){
-temp[i]=ct[i];
-if(ct[i]<='Z' && ct[i]>='A'){
-temp[i]=temp[i]-key;
-if(temp[i]<'A')
-temp[i]=temp[i]+26;
+for(int i=0;c[i]!='\0';i++){
+tem[i]=c[i];
+if(c[i]<=90 && c[i]>=65){
+tem[i]=tem[i]-key;
+if(tem[i]<65)
+tem[i]=tem[i]+26;
+tem[i]=tem[i]+32;
 }
-temp[i]=temp[i]+32;
 }
-printf("Plain text: %s\n",temp);
+printf("\nPlain text: \n");
+for(int i=0;tem[i]!='\0';i++)
+printf("%c",tem[i]);
+printf("\n");
 }
