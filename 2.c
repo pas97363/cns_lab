@@ -2,7 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 char pt[500],key[50],ct[500];
-int m[5][5],p[50],q[500],temp[50],a,c[500],b[500],i,j,k,flag,alph[26],bet[26],r1,r2,c1,c2;
+int m[5][5],p[50],q[500],temp[50],a,c[500],b[500],i,j,k,flag,alph[26],bet[26],r1,r2,c1,c2,cho,choice;
 void main(){
 printf("Enter the Plaintext: \n");
 gets(pt);
@@ -12,6 +12,14 @@ for(i=0;pt[i]!='\0';i++)
 q[i]=pt[i];
 for(int i=0;key[i]!='\0';i++)
 p[i]=key[i];
+printf("Enter 1 for i and 2 for j\n");
+scanf("%d",&cho);
+switch(cho){
+case 1 : choice=106;
+	 break;
+case 2 : choice=105;
+	 break;
+}
 matr();
 encr();
 //printf("Enter the Ciphertext: \n");
@@ -44,7 +52,7 @@ for(k=0;k<26;k++)
 alph[k]=k+97;
 i=0,j=0;
 while(alph[i]!='\0'){
-if(alph[i] == 106)
+if(alph[i] == choice)
 i++;
 else{
 for(k=0;temp[k]!='\0';k++){
