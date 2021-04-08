@@ -6,17 +6,24 @@ int p[50],key[10][10],c[50],i,j,k,temp,len,s;
 void main(){
 printf("Enter the Plaintext: \n");
 gets(pt);
-for(i=0;pt[i]!='\0';i++)
-p[i]=pt[i]%97;
+for(i=0,j=0;pt[i]!='\0';i++){
+if(97 <= pt[i] && pt[i] <= 122){
+p[j]=pt[i]%97;
+j++;
+}
+}
+len=0;
+for(i=0;pt[i]!='\0';i++){
+len++;
+if(pt[i] == 32)
+len=len-1;
+}
 printf("Enter the size of the key matrix: \n");
 scanf("%d",&s);
 printf("Enter the key matrix: \n");
 for(i=0;i<s;i++)
 for(j=0;j<s;j++)
 scanf("%d",&key[i][j]);
-len=0;
-for(i=0;pt[i]!='\0';i++)
-len++;
 encr();
 //decr();
 }
