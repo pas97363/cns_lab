@@ -50,7 +50,7 @@ void decr(){
 det=0;
 for(i=0;i<len;i++)
 c[i]=c[i]%65;
-int a[s][s],m[s][s];
+int m[s][s];
 for(k=1;k<26;k++)
 for(i=1;i<26;i++)
 for(j=-25;j<26;j++){
@@ -58,6 +58,7 @@ if(((26*i)+(k*j)) == 1)
 inv[k]=j+26;
 //printf("%d %d %d\n",k,i,j+26);
 }
+if(s == 3){
 for(i=0;i<s;i++){
 for(j=0;j<s;j++){
 m[j][i]=(key[(i+1)%s][(j+1)%s]*key[(i+2)%s][(j+2)%s])-(key[(i+1)%s][(j+2)%s]*key[(i+2)%s][(j+1)%s]);
@@ -70,6 +71,21 @@ if(det<0)
 det+=26;
 det=inv[det];
 printf("Det inverse: %d\n",det);
+}
+if(s == 2){
+for(i=0;i<s;i++){
+for(j=0;j<s;j++){
+m[j][i]=key[(i+1)%s][(j+1)%s];
+if((i+j)%2 == 1)
+m[j][i]=-m[j][i];
+}
+}
+det=((key[0][0]*key[1][1])-(key[0][1]*key[1][0]))%26;
+if(det<0)
+det+=26;
+det=inv[det];
+printf("Det inverse: %d\n",det);
+}
 for(i=0;i<s;i++)
 for(j=0;j<s;j++){
 m[i][j]=(det*m[i][j])%26;
@@ -89,7 +105,7 @@ for(i=k;i<(k+s);i++){
 //c[k+j]=(((p[k]*key[k%2][j])+(p[k+1]*key[(k+1)%2][j])));
 t[k+j]+=(c[i]*m[i%s][j]);
 //printf("%d=%d*%d  \n",p[i]*key[i%s][j],p[i],key[i%s][j]);
-//printf("c[%d]=%d %d \n",(k+j),c[k+j],k);
+//printf("t[%d]=%d %d \n",(k+j),t[k+j],k);
 }
 t[k+j]=(t[k+j]%26)+97;
 }
