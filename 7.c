@@ -20,13 +20,14 @@ for(j=-fn;j<0;j++)
 if(((fn*i)+(e*j))==1){
 d=j+fn;
 }
+printf("%d\n",d);
 }
 int fun(int e,int pt){
-temp=e/7;
-temp0=e%7;
+temp=e/4;
+temp0=e%4;
 int cit[temp];
 for(j=0;j<temp;j++){
-for(i=7,ct=1;i>0;i--){
+for(i=4,ct=1;i>0;i--){
 ct*=pt;}
 cit[j]=ct%n;
 }
