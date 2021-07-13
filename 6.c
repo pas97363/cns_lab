@@ -67,8 +67,14 @@ for(i=0;i<10;i++)
 scanf("%d",&k[i]);
 k1gen();
 k2gen();
+/*printf("Enter the Key: \n");
+for(i=0;i<8;i++)
+scanf("%d",&k1[i]);*/
 printf("Key 1: \n");
 Printing(k1);
+/*printf("Enter the Key: \n");
+for(i=0;i<8;i++)
+scanf("%d",&k2[i]);*/
 printf("Key 2: \n");
 Printing(k2);
 e1();

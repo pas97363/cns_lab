@@ -1,15 +1,21 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-char pt[500],key[50],ct[500];
-int m[5][5],p[50],q[500],temp[50],a,c[500],b[500],i,j,k,flag,alph[26],bet[26],r1,r2,c1,c2,cho,choice;
+char pt[500],key[500],ct[500];
+int m[5][5],p[500],q[500],temp[50],a,c[500],b[500],i,j,k,flag,alph[26],bet[26],r1,r2,c1,c2,cho,choice;
 void main(){
 printf("Enter the Plaintext: \n");
 gets(pt);
 printf("Enter the Key: \n");
 gets(key);
-for(i=0;pt[i]!='\0';i++)
-q[i]=pt[i];
+/*for(i=0;pt[i]!='\0';i++)
+q[i]=pt[i];*/
+for(i=0,j=0;pt[i]!='\0';i++){
+if(97 <= pt[i] && pt[i] <= 122){
+q[j]=pt[i];
+j++;
+}
+}
 for(int i=0;key[i]!='\0';i++)
 p[i]=key[i];
 printf("Enter 1 for i and 2 for j\n");
@@ -22,10 +28,11 @@ case 2 : choice=105;
 }
 matr();
 encr();
-//printf("Enter the Ciphertext: \n");
-//gets(ct);
-//for(i=0;ct[i]!='\0';i++)
-//c[i]=ct[i];
+/*printf("Enter the Ciphertext: \n");
+gets();
+gets(ct);
+for(i=0;ct[i]!='\0';i++)
+c[i]=ct[i];*/
 decr();
 }
 void matr(){

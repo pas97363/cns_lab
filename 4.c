@@ -39,7 +39,7 @@ void decr(){
 for(i=0;i<len;i++){
 temp=c[i]-65-ke[i];
 if(temp<0)
-t[i]=temp+123;
+t[i]=temp+97+26;
 else
 t[i]=temp+97;
 }

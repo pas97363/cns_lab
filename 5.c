@@ -136,7 +136,7 @@ temp[j+((key[i]-1)*5)]=c1[j][i];
 }
 for(j=0;j<ro;j++)
 for(i=0;i<7;i++)
-c1[j][i]=temp[i+(j*7)];
+c1[j][i]=temp[j+(i*ro)];
 printf("Ciphertext: \n");
 for(k=0;k<7*ro;k++)
 printf("%c",temp[k]);
